@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  /* Hide elements you don't want to print */
+  .no-print {
+    display: none !important;
+  }
+  .print-background {
+    background-color: #0069a6 !important; /* Orange background for specific elements */
+    color: white; /* Adjust text color for better readability */
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+  /* Example: hide specific sections */
+}
+
+p {
+  font-weight: 500;
+}
