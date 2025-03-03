@@ -140,7 +140,13 @@ export default function Cv() {
         </main>
       </div>
       <div>
-        <button onClick={() => printfn()} className="no-print border"> Print</button>
+        <button
+          onClick={printfn}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Print Document
+        </button>
+
       </div>
     </div>
   );
