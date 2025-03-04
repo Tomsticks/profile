@@ -16,7 +16,8 @@ try {
   
 }
 
-  } else if (req.method === 'GET') {
+  } if (req.method === 'GET') {
+      await dbConnect;
     try {
       const users = await profile.find()
       
