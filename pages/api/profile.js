@@ -21,9 +21,9 @@ try {
     try {
       const users = await profile.find()
       
-      res.status(200).json({users:users})
+     return res.status(200).json({users:users})
     } catch (error) {
-      res.status(401).json({error})
+     return res.status(401).json({error})
       
     }
 
