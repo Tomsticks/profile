@@ -7,9 +7,9 @@ export default function StudentProfileTable({ }) {
       const data = await axios.get('/api/profile')
       const res = data.data.users
       console.log(res);
-
-
       setStudents(res)
+
+
       console.log(students);
 
 

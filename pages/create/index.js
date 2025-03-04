@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+// 'use client'
+import React, { useEffect, useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Loader from '@/components/loader';
+// import { Button } from '@material-tailwind/react';
+
 
 export default function CreateForm() {
   const router = useRouter();
+  const [loading , setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const formData = new FormData(e.target);
     const formEntries = Object.fromEntries(formData.entries());
@@ -41,6 +47,7 @@ export default function CreateForm() {
 
       } catch (error) {
         console.error('Error converting image to base64:', error);
+        setLoading(false)
       }
     } else {
       // Save formEntries to localStorage without image
@@ -61,6 +68,10 @@ export default function CreateForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-teal-400 p-6">
+      { loading &&
+
+      <Loader/>
+      }
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
         <h1 className="text-3xl font-semibold text-gray-800 text-center mb-6">Contact Information</h1>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -164,6 +175,7 @@ export default function CreateForm() {
               id="profilePic"
               name="profilePic"
               className="mt-1 p-2 border border-gray-300 rounded-lg"
+              accept="image/*"
               required
             />
           </div>

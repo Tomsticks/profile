@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router'; // For navigation in Next.js
+'use client'
+import { useRouter } from 'next/navigation'; // For navigation in Next.js
 
 export default function UploadOrFormPage() {
-  const router = useRouter();
+  const router = useRouter()
 
   // Function to handle the redirect when the button is clicked
   const handleRedirect = (path) => {
@@ -22,7 +23,7 @@ export default function UploadOrFormPage() {
           <button
             onClick={() => handleRedirect('/create')}
             className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"
-          >
+          > 
             Fill Form to Generate Cv
           </button>
 
